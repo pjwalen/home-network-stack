@@ -8,4 +8,5 @@ RUN apt-get update; \
     chown root:dhcpd /var/lib/dhcp /var/lib/dhcp/dhcpd.leases; \
     chmod 775 /var/lib/dhcp; \
     chmod 664 /var/lib/dhcp/dhcpd.leases; \
-    mkdir /run/dhcp-server;
+    mkdir /run/dhcp-server; \
+    apt-get clean;

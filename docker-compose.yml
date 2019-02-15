@@ -1,12 +1,12 @@
 version: '3'
 services:
   dns:
-    image: dns:9
+    image: dns-1.0.0
     build: ./dns
     volumes:
       - dns-config-data:/etc/bind
   dhcp:
-    image: dhcp:1
+    image: dns-1.0.0
     build: ./dhcp
     volumes:
       - dhcp-config-data:/etc/dhcp
