@@ -1,0 +1,32 @@
+version: '3'
+services:
+  dns:
+    image: dns:9
+    build: ./dns
+    volumes:
+      - dns-config-data:/etc/bind
+  # dhcp:
+  #   image: dhcp:1
+  #   build: ./dhcp
+  #   volumes:
+  #     - dhcp-config-data:/etc/dhcp
+  #     - dhcp-lease-data:/var/lib/dhcp
+volumes:
+  dns-config-data:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=nas,nolock,soft,rw"
+      device: ":/dns-config-data"
+  dhcp-config-data:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=nas,nolock,soft,rw"
+      device: ":/dhcp-config-data"
+  dhcp-lease-data:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=nas,nolock,soft,rw"
+      device: ":/dhcp-lease-data"
