@@ -5,12 +5,12 @@ services:
     build: ./dns
     volumes:
       - dns-config-data:/etc/bind
-  # dhcp:
-  #   image: dhcp:1
-  #   build: ./dhcp
-  #   volumes:
-  #     - dhcp-config-data:/etc/dhcp
-  #     - dhcp-lease-data:/var/lib/dhcp
+  dhcp:
+    image: dhcp:1
+    build: ./dhcp
+    volumes:
+      - dhcp-config-data:/etc/dhcp
+      - dhcp-lease-data:/var/lib/dhcp
 volumes:
   dns-config-data:
     driver: local
